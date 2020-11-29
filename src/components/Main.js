@@ -17,15 +17,16 @@ function Main(props){
       setUserAvatar(data[0].avatar);
       
       const initialCards = data[1].map(card =>
-          <Card card={card} onCardClick={props.onCardClick}/>        
+          <Card key = {card._id} card={card} onCardClick={props.onCardClick}/>        
         );
-      setCards(initialCards);      
+      setCards(initialCards);     
     })
     .catch((err)=>{console.log('InitialRenderingError', err)})
     .finally(()=>{
       console.log('Запрос был');
     });
-  }, [props.onCardClick])
+  }, []);
+
 
     return(
     <main className="content">

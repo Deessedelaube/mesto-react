@@ -1,9 +1,10 @@
 function Card(props){
   function handleClick(){
+    debugger;
     props.onCardClick(props.card);
   };
   return(
-    <li key ={props.card._id} className="element">
+    <li className="element">
       <button className="button button_type_delete"></button>
       <button className ="button button_type_enlarge" onClick={handleClick}>
         <img src={props.card.link} alt={props.card.name} class="element__image" />

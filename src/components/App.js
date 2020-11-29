@@ -9,7 +9,7 @@ function App() {
   const [isEditProfilePopupOpen, openEditProfile] = React.useState(false);
   const [isEditAvatarPopupOpen, openEditAvatarPopup] = React.useState(false);
   const [isAddPlacePopupOpen, openAddPlacePopup] = React.useState(false);
-  const [selectedCard, openImagePopup] = React.useState('');
+  const [selectedCard, openImagePopup] = React.useState({});
     
   function handleEditAvatarClick(){
     openEditAvatarPopup(true);
@@ -27,7 +27,7 @@ function App() {
     openEditAvatarPopup(false);
     openEditProfile(false);
     openAddPlacePopup(false);
-    openImagePopup('');
+    openImagePopup({});
   }
 
   return (

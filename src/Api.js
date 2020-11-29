@@ -91,7 +91,7 @@ class Api {
       headers: this._headers
     }).then((res) => {
       if (!res.ok) {
-        return reject(new Error(`'Server error: ',${res.status}`));
+        throw new Error(`'Server error: ',${res.status}`);
       }
       return res.json();
     });
