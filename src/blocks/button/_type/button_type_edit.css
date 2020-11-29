@@ -1,0 +1,23 @@
+.button_type_edit{
+  width: 24px;
+  height: 24px;
+  border: 1px solid #FFFFFF;
+  position: absolute;
+  bottom: 55%;
+  right: -41px;
+  background-image: url("../../../images/button-edit.png");
+  background-size: 10px;
+  background-color: #000;
+  cursor: pointer;
+  }
+.button_type_edit:hover{
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  opacity: 0.6;
+}
+@media only screen and (max-width: 425px){
+  .button_type_edit{
+    width: 18px;
+    height: 18px;
+    right: -20px;
+  }
+}

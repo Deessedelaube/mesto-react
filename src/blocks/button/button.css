@@ -1,0 +1,17 @@
+@import url("./_type/button_type_add.css");
+@import url("./_type/button_type_edit.css");
+@import url("./_type/button_type_like.css");
+@import url("./_type/button_type_close.css");
+@import url("./_type/button_type_save.css");
+@import url("./_type/button_type_delete.css");
+@import url("./_type/button_type_enlarge.css");
+@import url("./_type/_clicked/button_type_like_clicked.css");
+@import url("./_type/_disabled/button_type_save_disabled.css");
+@import url("./_type/button_type_avatar.css");
+
+
+.button{
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: center;
+}
