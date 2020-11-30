@@ -6,34 +6,28 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 function App() {
-  const [isEditProfilePopupOpen, openEditProfile] = React.useState(false);
-  const [isEditAvatarPopupOpen, openEditAvatarPopup] = React.useState(false);
-  const [isAddPlacePopupOpen, openAddPlacePopup] = React.useState(false);
-  const [selectedCard, openImagePopup] = React.useState({});
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
     
-  function handleEditAvatarClick(evt){
-    evt.preventDefault();
-    evt.stopPropagation();
-    openEditAvatarPopup(true);
+  function handleEditAvatarClick(){
+    setIsEditAvatarPopupOpen(true);
   };
-  function handleEditProfileClick(evt){
-    evt.preventDefault();
-    evt.stopPropagation();
-    openEditProfile(true);
+  function handleEditProfileClick(){
+    setIsEditProfilePopupOpen(true);
   };
-  function handleAddPlaceClick(evt){
-    evt.preventDefault();
-    evt.stopPropagation();
-    openAddPlacePopup(true);
+  function handleAddPlaceClick(){
+    setIsAddPlacePopupOpen(true);
   };
   function handleCardClick(card){
-    openImagePopup(card);
+    setSelectedCard(card);
   };
   function closeAllPopups(){
-    openEditAvatarPopup(false);
-    openEditProfile(false);
-    openAddPlacePopup(false);
-    openImagePopup({});
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setSelectedCard({});
   }
 
   return (
@@ -79,11 +73,6 @@ function App() {
       </PopupWithForm>;
       <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
       <Footer />
-
-      <template className="element_template">
-        
-      </template>
-
     </div>
   );
 }
