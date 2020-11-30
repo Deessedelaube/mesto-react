@@ -11,18 +11,24 @@ function App() {
   const [isAddPlacePopupOpen, openAddPlacePopup] = React.useState(false);
   const [selectedCard, openImagePopup] = React.useState({});
     
-  function handleEditAvatarClick(){
+  function handleEditAvatarClick(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
     openEditAvatarPopup(true);
   };
-  function handleEditProfileClick(){
+  function handleEditProfileClick(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
     openEditProfile(true);
   };
-  function handleAddPlaceClick(){
+  function handleAddPlaceClick(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
     openAddPlacePopup(true);
   };
   function handleCardClick(card){
     openImagePopup(card);
-  }
+  };
   function closeAllPopups(){
     openEditAvatarPopup(false);
     openEditProfile(false);

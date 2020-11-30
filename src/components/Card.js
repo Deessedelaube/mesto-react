@@ -1,6 +1,7 @@
 function Card(props){
-  function handleClick(){
-    debugger;
+  function handleClick(evt){
+    evt.preventDefault();
+    evt.stopPropagation();
     props.onCardClick(props.card);
   };
   return(

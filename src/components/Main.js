@@ -7,26 +7,30 @@ function Main(props){
   const [userDescription, setDescription] = React.useState('');
   const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
-  
+  const handleClickCard= props.onCardClick;
+
   React.useEffect(()=>{
-    Promise.all([api.loadUserInfo(), api.getInitialCards()])
-    .then((data)=>{
-      console.log(data);
-      setUserName(data[0].name);
-      setDescription(data[0].about);
-      setUserAvatar(data[0].avatar);
-      
-      const initialCards = data[1].map(card =>
-          <Card key = {card._id} card={card} onCardClick={props.onCardClick}/>        
-        );
-      setCards(initialCards);     
+    api.loadUserInfo().then((data)=>{
+      setUserName(data.name);
+      setDescription(data.about);
+      setUserAvatar(data.avatar);
     })
-    .catch((err)=>{console.log('InitialRenderingError', err)})
+    .catch((err)=>{console.log('Ошибка рендеринга профиля', err)})
     .finally(()=>{
-      console.log('Запрос был');
+      console.log('Запрос данных профиля был');
     });
   }, []);
 
+  React.useEffect(()=>{
+    api.getInitialCards().then((data)=>{
+      const initialCards = data.map(item=><Card key={item._id} card={item} onCardClick={handleClickCard} />);
+      setCards(initialCards);
+    })
+    .catch((err)=>{console.log('Ошибка рендеринга карточек', err)})
+    .finally(()=>{
+      console.log('Обновили карточки');
+    });
+  }, [handleClickCard]);
 
     return(
     <main className="content">
