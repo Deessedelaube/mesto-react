@@ -23,14 +23,13 @@ function Main(props){
 
   React.useEffect(()=>{
     api.getInitialCards().then((data)=>{
-      const initialCards = data.map(item=><Card key={item._id} card={item} onCardClick={handleClickCard} />);
-      setCards(initialCards);
+      setCards(data);
     })
     .catch((err)=>{console.log('Ошибка рендеринга карточек', err)})
     .finally(()=>{
       console.log('Обновили карточки');
     });
-  }, [handleClickCard]);
+  }, []);
 
     return(
     <main className="content">
@@ -46,7 +45,7 @@ function Main(props){
         <button className="button button_type_add" onClick={props.onAddPlace}></button>
       </section>
       <section>
-    <ul className="elements">{cards}</ul>
+    <ul className="elements">{cards.map(item=><Card key={item._id} card={item} onCardClick={handleClickCard} />)}</ul>
       </section>
     </main>
   )
