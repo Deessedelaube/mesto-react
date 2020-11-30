@@ -7,16 +7,12 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "gh-pages": "^3.1.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.5.2",
-    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "lint": "eslint './src/components/*.js'",
     "start": "react-scripts start --mode development",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,10 +23,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
-      "plugin:prettier/recommended",
-      "prettier/react",
-      "prettier/standard"
+      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -44,21 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.1.4"
   },
   "homepage": "https://github.com/Deessedelaube/mesto-react"
 }
