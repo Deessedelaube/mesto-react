@@ -1,9 +1,10 @@
 .avatar{
   margin: 0;
-  width: auto;
+  width: 100%;
   height: 100%;
   position: relative;
   z-index: 1;
   object-fit: cover;
+  object-position: center;
 }
 

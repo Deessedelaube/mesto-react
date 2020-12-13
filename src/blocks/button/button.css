@@ -4,6 +4,7 @@
 @import url("./_type/button_type_close.css");
 @import url("./_type/button_type_save.css");
 @import url("./_type/button_type_delete.css");
+@import url("./_type/_hidden/button_type_delete_hidden.css");
 @import url("./_type/button_type_enlarge.css");
 @import url("./_type/_clicked/button_type_like_clicked.css");
 @import url("./_type/_disabled/button_type_save_disabled.css");

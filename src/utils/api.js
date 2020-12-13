@@ -19,10 +19,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
-      body: JSON.stringify({
-        name: obj.fullname,
-        about: obj.job
-      })
+      body: JSON.stringify(obj)
     }).then((res) => {
       if (!res.ok) {
         throw new Error(`'Server error: ',${res.status}`);
@@ -35,9 +32,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: obj.avatarLink
-      })
+      body: JSON.stringify(obj)
     }).then((res) => {
       if (!res.ok) {
         throw new Error(`'Server error: ',${res.status}`);
@@ -61,10 +56,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({
-        name: obj.elemTitle,
-        link: obj.link
-      })
+      body: JSON.stringify(obj)
     }).then((res) => {
       if (!res.ok) {
         throw new Error(`'Server error: ',${res.status}`);
@@ -85,7 +77,7 @@ class Api {
     });
   }
 
-  likeCard(id, method){
+  changeLikeCardStatus(id, method){
     return fetch(`${this._url}/cards/likes/${id}`, {
       method: `${method}`,
       headers: this._headers

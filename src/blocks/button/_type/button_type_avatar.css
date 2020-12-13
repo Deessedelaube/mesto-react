@@ -2,6 +2,7 @@
   width: 120px;
   height: 120px;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   border-radius: 50%;
   border: none;
@@ -12,6 +13,7 @@
   background-size: 26px;
   background-color: #000;
   opacity: 1;
+  box-sizing: border-box;
 }
 .button_type_avatar:hover .avatar{
   opacity: 0.2;
