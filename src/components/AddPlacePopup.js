@@ -9,18 +9,22 @@ function AddPlacePopup(props){
   function handleChange(e){
     e.target.id === "elemTitle"? setName(e.target.value) : setLink(e.target.value);
   }; 
+  function cleanForm() {
+    setName('');
+    setLink('');
+  };
   function handleSubmit(e){
     e.preventDefault();
       // Передаём значения управляемых компонентов во внешний обработчик
     props.onAddPlace({
       name: name,
       link: link,
-    });
-    setName('');
-    setLink('');
+    }, cleanForm);
+    
   };
   return(
-    <PopupWithForm isOpen ={props.isOpen} name='addPlace' title='Новое меcто' onClose ={props.onClose} onSubmit={handleSubmit}>
+    <PopupWithForm isOpen ={props.isOpen} name='addPlace' title='Новое меcто'
+      onClose ={props.onClose} onSubmit={handleSubmit} buttonText='Добавить'>
         <label htmlFor="elemTitle" className="form__field">
           <input type="text" className="form__input form__input_name"
             placeholder="Название" name="elemTitle" id ="elemTitle"

@@ -53,11 +53,13 @@ function App() {
         })
         .catch((err)=>{console.log('Ошибка обновления аватара: ', err)});
   };
-    //добавляем карточку: отправляем запрос в API, затем обновляем cards, добавляя новый элемент
-  function handleAddPlaceSubmit(obj){
+    //добавляем карточку: отправляем запрос в API, затем обновляем cards, добавляя новый элемент. Чистим форму и закрываем попап
+  function handleAddPlaceSubmit(obj, cleanFormValues){
     api.addCard(obj)
     .then((res)=>{
       setCards([res, ...cards]);
+      debugger;
+      cleanFormValues();
       closeAllPopups();
     })
     .catch((err)=>{console.log('Ошибка добавления карточки: ', err)})
@@ -72,7 +74,8 @@ function App() {
         // Формируем новый массив на основе имеющегося, подставляя в него новую карточку
       const newCards = cards.map((c) => c._id === card._id ? newCard : c);
       setCards(newCards);
-    });
+    })
+    .catch((err)=>{console.log('Ошибка обновления статуса лайка карточки', err)});
   };
     //обрабатываем удаление карточки: отправляем запрос в API, затем формируем новый массв, исключая
     //удаленную карточку. Обновляем cards
@@ -80,7 +83,8 @@ function App() {
     api.deleteCard(card._id).then(() => {
     const newCards = cards.filter((c) => c._id !== card._id);
     setCards(newCards);
-  });
+  })
+  .catch((err)=>{console.log('Ошибка удаления карточки', err)});
   };
   //запрашиваем данные через API при монтировании компонента, затем обновляем cards и контекст пользователя
   React.useEffect(()=>{

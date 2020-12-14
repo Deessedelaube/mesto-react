@@ -14,7 +14,8 @@ function EditAvatarPopup(props){
     //возвращаем компонент PopupWithForm, передаваем в него children, обработчики из пропсов. 
     //Назначаем Ref для инпута
   return (
-    <PopupWithForm name='editAvatar' title='Обновить аватар' isOpen ={props.isOpen} onClose ={props.onClose} onSubmit={handleSubmit}>
+    <PopupWithForm name='editAvatar' title='Обновить аватар' isOpen ={props.isOpen}
+      onClose ={props.onClose} onSubmit={handleSubmit} buttonText='Обновить'>
       <label htmlFor="link" className="form__field">
         <input type="url" className="form__input form__input_avatarLink"
           placeholder="Ссылка на картинку"
